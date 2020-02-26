@@ -14,4 +14,13 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
     }
+    override func tableView(_ tableView: UITableView, cellForRowAt
+    indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier:
+        "ToDoCellIdentifier", for: indexPath)
+        
+        let todo = todos[indexPath.row]
+        cell.textLabel?.text = todo.title
+        return cell
+    }
 }
